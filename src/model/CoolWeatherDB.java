@@ -11,17 +11,17 @@ import db.CoolWeatherOpenHelper;
 
 public class CoolWeatherDB 
 {
-	/*
+	/**
 	 * 数据库名
 	 */
 	public static final String DB_NAME="cool_weather";
-	/*
+	/**
 	 * 数据库版本
 	 */
 	public static final int VERSION=1;
 	private static CoolWeatherDB coolWeatherDB;
 	private SQLiteDatabase db;
-	/*
+	/**
 	 * 将构造方法私有化
 	 */
 	private CoolWeatherDB(Context context)
@@ -29,7 +29,7 @@ public class CoolWeatherDB
 		CoolWeatherOpenHelper dbHelper = new CoolWeatherOpenHelper(context,DB_NAME, null, VERSION);
 		db = dbHelper.getWritableDatabase();
 	}
-	/*
+	/**
 	 * 获取CoolWeatherDBde实例
 	 */
 	public synchronized static CoolWeatherDB getInstance(Context context) 
@@ -53,7 +53,7 @@ public class CoolWeatherDB
 			db.insert("Province", null, values);
 		}
 	}
-	/*
+	/**
 	 * 从数据库读取全国所有省份信息
 	 */
 	public List<Province> loadProvinces() 
